@@ -5,10 +5,11 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
 import java.util.Date;
+import java.util.UUID;
 
 @Entity(name="users")
 public class UserEntity {
-    @Id String uuid;
+    @Id UUID uuid;
     String taxIdCode;
     String name;
     String surname;
@@ -20,11 +21,11 @@ public class UserEntity {
     Date birthday;
 
     public UserEntity(){ }
-    public String getUuid() {
+    public UUID getUuid() {
         return uuid;
     }
 
-    public void setUuid(String uuid) {
+    public void setUuid(UUID uuid) {
         this.uuid = uuid;
     }
 
