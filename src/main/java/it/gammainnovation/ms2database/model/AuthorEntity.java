@@ -5,7 +5,7 @@ import jakarta.persistence.Id;
 
 import java.util.Date;
 
-@Entity
+@Entity(name="authors")
 public class AuthorEntity {
 
     /* #################### PROPERTIES #################### */

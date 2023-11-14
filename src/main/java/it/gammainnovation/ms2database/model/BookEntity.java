@@ -6,7 +6,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
-@Entity
+@Entity(name="books")
 public class BookEntity {
 
     @Id String id;
