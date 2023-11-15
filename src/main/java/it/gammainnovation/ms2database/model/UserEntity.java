@@ -10,7 +10,7 @@ import java.util.UUID;
 @Entity(name="users")
 public class UserEntity {
     @Id UUID uuid;
-    String taxIdCode;
+    @Column(name="taxidcode") String taxIdCode;
     String name;
     String surname;
     String gender;

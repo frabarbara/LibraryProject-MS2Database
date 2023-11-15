@@ -10,14 +10,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class Controller {
 
-    UserRepository userRepository;
+    private final UserRepository userRepository;
 
     @Autowired
-    public Controller(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
+    public Controller(UserRepository ur) { this.userRepository = ur; }
 
     @PostMapping("/signup")
-    public int signUp(@RequestBody UserEntity newUser) { return this.userRepository.signUp(newUser); }
+    public UserEntity signUp(@RequestBody UserEntity newUser) { return this.userRepository.save(newUser); }
 
 }
