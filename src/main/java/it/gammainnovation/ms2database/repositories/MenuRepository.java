@@ -1,4 +1,4 @@
-package it.gammainnovation.ms2database.Repository;
+package it.gammainnovation.ms2database.repositories;
 
 
 import it.gammainnovation.librarymodel.DailyMenu;

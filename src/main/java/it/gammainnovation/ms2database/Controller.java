@@ -1,6 +1,6 @@
 package it.gammainnovation.ms2database;
 
-import it.gammainnovation.ms2database.Service.DailyMenuService;
+import it.gammainnovation.ms2database.services.DailyMenuService;
 import it.gammainnovation.ms2database.model.DailyMenuEntity;
 import it.gammainnovation.ms2database.model.UserEntity;
 import it.gammainnovation.ms2database.repositories.UserRepository;

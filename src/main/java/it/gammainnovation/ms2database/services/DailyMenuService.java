@@ -1,4 +1,4 @@
-package it.gammainnovation.ms2database.Service;
+package it.gammainnovation.ms2database.services;
 
 
 import it.gammainnovation.ms2database.model.DailyMenuEntity;
