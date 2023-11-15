@@ -23,7 +23,7 @@ public class Controller {
     }
 
     @PostMapping("/signup")
-    public int signUp(@RequestBody UserEntity newUser) { return this.userRepository.signUp(newUser); }
+    public UserEntity signUp(@RequestBody UserEntity newUser) { return this.userRepository.save(newUser); }
 
     @RequestMapping("/getDailyMenuDB")
     public DailyMenuEntity getDailyMenu(){
