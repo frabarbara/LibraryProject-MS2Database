@@ -1,14 +1,12 @@
 package it.gammainnovation.ms2database.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import org.aspectj.lang.annotation.control.CodeGenerationHint;
 
 @Entity(name="reading_rooms")
 public class ReadingRoomEntity {
     @Id String id;
-    @Column(name="floor_id") int floor;
+    @ManyToOne @JoinColumn(name="floor_id") FloorEntity floor;
     int num_seats;
     String name;
 
@@ -21,11 +19,11 @@ public class ReadingRoomEntity {
         this.id = id;
     }
 
-    public int getFloor() {
+    public FloorEntity getFloor() {
         return floor;
     }
 
-    public void setFloor(int floor) {
+    public void setFloor(FloorEntity floor) {
         this.floor = floor;
     }
 

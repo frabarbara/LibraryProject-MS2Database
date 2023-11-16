@@ -1,13 +1,12 @@
 package it.gammainnovation.ms2database.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
 @Entity(name="receptions")
 public class ReceptionEntity {
     @Id String id;
     String name;
-    @Column(name="floor_id") int floor;
+    @ManyToOne @JoinColumn(name="floor_id") FloorEntity floor;
 
     public ReceptionEntity(){ }
     public String getName() {
@@ -26,11 +25,11 @@ public class ReceptionEntity {
         this.id = id;
     }
 
-    public int getFloor() {
+    public FloorEntity getFloor() {
         return floor;
     }
 
-    public void setFloor(int floor) {
+    public void setFloor(FloorEntity floor) {
         this.floor = floor;
     }
 }
