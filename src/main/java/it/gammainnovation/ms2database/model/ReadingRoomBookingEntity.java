@@ -1,18 +1,15 @@
 package it.gammainnovation.ms2database.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Date;
 
 @Entity(name="booking_reading_room")
 public class ReadingRoomBookingEntity {
     @Id @GeneratedValue int id;
-    @Column(name="user_id") String userId;
-    @Column(name="reading_room_id")String readingRoomId;
-    @Column(name="turn_read_room_id") String turnId;
+    @ManyToOne @JoinColumn(name = "user_id")UserEntity user;
+    @ManyToOne @Column(name="reading_room_id") ReadingRoomEntity readingRoom;
+    @ManyToOne @Column(name="turn_restaurant_id") RestaurantTurnEntity turn;
     Date day;
 
     public ReadingRoomBookingEntity(){ }
@@ -24,28 +21,28 @@ public class ReadingRoomBookingEntity {
         this.id = id;
     }
 
-    public String getUserId() {
-        return userId;
+    public UserEntity getUser() {
+        return user;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setUser(UserEntity user) {
+        this.user = user;
     }
 
-    public String getReadingRoomId() {
-        return readingRoomId;
+    public ReadingRoomEntity getReadingRoom() {
+        return readingRoom;
     }
 
-    public void setReadingRoomId(String readingRoomId) {
-        this.readingRoomId = readingRoomId;
+    public void setReadingRoom(ReadingRoomEntity readingRoom) {
+        this.readingRoom = readingRoom;
     }
 
-    public String getTurnId() {
-        return turnId;
+    public RestaurantTurnEntity getTurn() {
+        return turn;
     }
 
-    public void setTurnId(String turnId) {
-        this.turnId = turnId;
+    public void setTurn(RestaurantTurnEntity turn) {
+        this.turn = turn;
     }
 
     public Date getDay() {

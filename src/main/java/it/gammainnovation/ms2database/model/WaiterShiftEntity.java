@@ -1,17 +1,16 @@
 package it.gammainnovation.ms2database.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import it.gammainnovation.librarymodel.Waiter;
+import jakarta.persistence.*;
 
 @Entity(name="waiters_shifts")
 public class WaiterShiftEntity {
     @Id @GeneratedValue int id;
-    @Column(name="res_shift") String restaurantShift;
-    String waiter;
+    @ManyToOne @JoinColumn(name = "res_shift")RestaurantShiftEntity restaurantShift;
+    @ManyToOne @JoinColumn(name = "waiter") WaiterEntity waiter;
 
     public WaiterShiftEntity(){ }
+
     public int getId() {
         return id;
     }
@@ -20,19 +19,19 @@ public class WaiterShiftEntity {
         this.id = id;
     }
 
-    public String getRestaurantShift() {
+    public RestaurantShiftEntity getRestaurantShift() {
         return restaurantShift;
     }
 
-    public void setRestaurantShift(String restaurantShift) {
+    public void setRestaurantShift(RestaurantShiftEntity restaurantShift) {
         this.restaurantShift = restaurantShift;
     }
 
-    public String getWaiter() {
+    public WaiterEntity getWaiter() {
         return waiter;
     }
 
-    public void setWaiter(String waiter) {
+    public void setWaiter(WaiterEntity waiter) {
         this.waiter = waiter;
     }
 }
