@@ -7,23 +7,23 @@ import jakarta.persistence.Id;
 
 @Entity(name="themes")
 public class ThemeEntity {
-    @Id Theme.Id id;
-    @Column(name="name") Theme.Description description;
+    @Id String id;
+    @Column(name="name") String description;
 
     public ThemeEntity(){ }
-    public Theme.Id getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Theme.Id id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public Theme.Description getDescription() {
+    public String getDescription() {
         return description;
     }
 
-    public void setDescription(Theme.Description description) {
+    public void setDescription(String description) {
         this.description = description;
     }
 }

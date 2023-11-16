@@ -6,23 +6,23 @@ import jakarta.persistence.Id;
 
 @Entity(name="loan_status")
 public class LoanStatusEntity {
-    @Id LoanStatus.Id id;
-    LoanStatus.Description description;
+    @Id String id;
+    String description;
 
     public LoanStatusEntity(){ }
-    public LoanStatus.Id getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(LoanStatus.Id id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public LoanStatus.Description getDescription() {
+    public String getDescription() {
         return description;
     }
 
-    public void setDescription(LoanStatus.Description description) {
+    public void setDescription(String description) {
         this.description = description;
     }
 }

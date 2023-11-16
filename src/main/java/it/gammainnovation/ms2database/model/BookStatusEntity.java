@@ -7,23 +7,23 @@ import jakarta.persistence.Id;
 @Entity(name="book_status")
 public class BookStatusEntity {
     @Id
-    BookStatus.Id id;
-    BookStatus.Description description;
+    String id;
+    String description;
 
     public BookStatusEntity (){ }
-    public BookStatus.Id getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(BookStatus.Id id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public BookStatus.Description getDescription() {
+    public String getDescription() {
         return description;
     }
 
-    public void setDescription(BookStatus.Description description) {
+    public void setDescription(String description) {
         this.description = description;
     }
 }

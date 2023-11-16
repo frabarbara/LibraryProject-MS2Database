@@ -15,9 +15,9 @@ public class BookEntity {
     int edition;
     String authorId;
     @Column(name="pub_year") int pubYear;
-    Theme.Id theme;
+    String theme;
     boolean borrowable;
-    BookStatus.Id status;
+    String status;
 
     public BookEntity() {}
 
@@ -49,11 +49,11 @@ public class BookEntity {
         this.pubYear = pubYear;
     }
 
-    public Theme.Id getTheme() {
+    public String getTheme() {
         return theme;
     }
 
-    public void setTheme(Theme.Id theme) {
+    public void setTheme(String theme) {
         this.theme = theme;
     }
 
@@ -65,11 +65,11 @@ public class BookEntity {
         this.borrowable = borrowable;
     }
 
-    public BookStatus.Id getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(BookStatus.Id status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 

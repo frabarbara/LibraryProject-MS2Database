@@ -9,7 +9,7 @@ import jakarta.persistence.Id;
 public class BooksRoomEntity {
     @Id String id;
     @Column(name="floor_id") int floorId;
-    Theme.Id theme;
+    String theme;
 
     public BooksRoomEntity(){ }
     public int getFloor() {
@@ -20,11 +20,11 @@ public class BooksRoomEntity {
         this.floorId = floor;
     }
 
-    public Theme.Id getTheme() {
+    public String getTheme() {
         return theme;
     }
 
-    public void setTheme(Theme.Id theme) {
+    public void setTheme(String theme) {
         this.theme = theme;
     }
 }

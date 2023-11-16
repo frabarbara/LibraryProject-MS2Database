@@ -7,23 +7,23 @@ import jakarta.persistence.Id;
 
 @Entity(name="roles")
 public class RoleEntity {
-    @Id Role.Id id;
-    @Column(name="role") Role.Description description;
+    @Id String id;
+    @Column(name="role") String description;
 
     public RoleEntity(){ }
-    public Role.Id getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Role.Id id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public Role.Description getDescription() {
+    public String getDescription() {
         return description;
     }
 
-    public void setDescription(Role.Description description) {
+    public void setDescription(String description) {
         this.description = description;
     }
 }
