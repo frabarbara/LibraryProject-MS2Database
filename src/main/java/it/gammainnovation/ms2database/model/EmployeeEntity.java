@@ -1,8 +1,6 @@
 package it.gammainnovation.ms2database.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Date;
 @Entity(name="employees")
@@ -16,7 +14,7 @@ public class EmployeeEntity {
     String email;
     @Column(name="phone_number") String phoneNumber;
     String password;
-    String role;
+    @ManyToOne @JoinColumn(name="role") RoleEntity role;
     Date birthday;
 
     public EmployeeEntity(){ }
@@ -93,11 +91,11 @@ public class EmployeeEntity {
         this.password = password;
     }
 
-    public String getRole() {
+    public RoleEntity getRole() {
         return role;
     }
 
-    public void setRole(String role) {
+    public void setRole(RoleEntity role) {
         this.role = role;
     }
 

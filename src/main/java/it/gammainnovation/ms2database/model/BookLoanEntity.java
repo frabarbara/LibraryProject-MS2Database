@@ -1,18 +1,15 @@
 package it.gammainnovation.ms2database.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Date;
 @Entity(name = "loan_book")
 public class BookLoanEntity {
 
     @Id @GeneratedValue int id;
-    @Column(name="user_id") String userId;
-    @Column(name="book_id") String bookId;
-    String status;
+    @ManyToOne @JoinColumn(name = "user_id") UserEntity user;
+    @ManyToOne @JoinColumn(name = "book_id") BookEntity book;
+    @ManyToOne @JoinColumn(name = "status")LoanStatusEntity status;
     @Column(name="start_loan") Date startLoan;
     @Column(name="end_loan") Date endLoan;
 
@@ -26,27 +23,27 @@ public class BookLoanEntity {
         this.id = id;
     }
 
-    public String getUserId() {
-        return userId;
+    public UserEntity getUser() {
+        return user;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setUser(UserEntity user) {
+        this.user = user;
     }
 
-    public String getBookId() {
-        return bookId;
+    public BookEntity getBook() {
+        return book;
     }
 
-    public void setBookId(String bookId) {
-        this.bookId = bookId;
+    public void setBook(BookEntity book) {
+        this.book = book;
     }
 
-    public String getStatus() {
+    public LoanStatusEntity getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(LoanStatusEntity status) {
         this.status = status;
     }
 

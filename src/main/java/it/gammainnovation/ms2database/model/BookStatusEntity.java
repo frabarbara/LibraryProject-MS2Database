@@ -11,6 +11,7 @@ public class BookStatusEntity {
     String description;
 
     public BookStatusEntity (){ }
+
     public String getId() {
         return id;
     }

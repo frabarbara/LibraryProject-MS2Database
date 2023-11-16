@@ -1,16 +1,13 @@
 package it.gammainnovation.ms2database.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 @Entity(name="orders")
 public class OrderEntity {
     @Id @GeneratedValue int id;
-    @Column(name="waiter_id") String waiterId;
-    @Column(name="daily_menu") int dailyMenu;
+    @ManyToOne @JoinColumn(name="waiter_id") WaiterEntity waiter;
+    @ManyToOne @JoinColumn(name="daily_menu") DailyMenuEntity dailyMenu;
     @Column(name="fc1_amt") int fc1Amt;
     @Column(name="fc2_amt") int fc2Amt;
     @Column(name="fc3_amt") int fc3Amt;
@@ -32,19 +29,19 @@ public class OrderEntity {
         this.id = id;
     }
 
-    public String getWaiterId() {
-        return waiterId;
+    public WaiterEntity getWaiter() {
+        return waiter;
     }
 
-    public void setWaiterId(String waiterId) {
-        this.waiterId = waiterId;
+    public void setWaiter(WaiterEntity waiter) {
+        this.waiter = waiter;
     }
 
-    public int getDailyMenu() {
+    public DailyMenuEntity getDailyMenu() {
         return dailyMenu;
     }
 
-    public void setDailyMenu(int dailyMenu) {
+    public void setDailyMenu(DailyMenuEntity dailyMenu) {
         this.dailyMenu = dailyMenu;
     }
 
