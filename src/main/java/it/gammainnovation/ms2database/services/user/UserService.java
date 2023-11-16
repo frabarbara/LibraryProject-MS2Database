@@ -19,4 +19,7 @@ public class UserService implements UserServiceInterface {
     public UserEntity signup(UserEntity newUser) {
         return userRepository.save(newUser);
     }
+
+    @Override
+    public UserEntity login(UserEntity credentials) { return userRepository.findByEmail(credentials.getEmail()); }
 }
