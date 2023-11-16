@@ -8,8 +8,8 @@ import java.util.Date;
 public class ReadingRoomBookingEntity {
     @Id @GeneratedValue int id;
     @ManyToOne @JoinColumn(name = "user_id")UserEntity user;
-    @ManyToOne @Column(name="reading_room_id") ReadingRoomEntity readingRoom;
-    @ManyToOne @Column(name="turn_restaurant_id") RestaurantTurnEntity turn;
+    @ManyToOne @JoinColumn(name="reading_room_id") ReadingRoomEntity readingRoom;
+    @ManyToOne @JoinColumn(name="turn_restaurant_id") RestaurantTurnEntity turn;
     Date day;
 
     public ReadingRoomBookingEntity(){ }

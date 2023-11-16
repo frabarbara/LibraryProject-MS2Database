@@ -9,7 +9,7 @@ public class RestaurantBookingEntity {
     @Id @GeneratedValue int id;
     @ManyToOne @JoinColumn(name = "user_id")UserEntity user;
     @ManyToOne @JoinColumn(name = "restaurant_id")RestaurantEntity restaurant;
-    @ManyToOne @Column(name="turn_restaurant_id") RestaurantTurnEntity turn;
+    @ManyToOne @JoinColumn(name="turn_restaurant_id") RestaurantTurnEntity turn;
     Date day;
 
     public RestaurantBookingEntity(){ };

@@ -10,12 +10,12 @@ public class DailyMenuEntity {
     Date day;
     @ManyToOne @JoinColumn(name="first_course1") RecipeEntity fc1;
     @ManyToOne @JoinColumn(name="first_course2") RecipeEntity fc2;
-    @ManyToOne @JoinColumn(name="first_course2") RecipeEntity fc3;
-    @ManyToOne @JoinColumn(name="first_course2") RecipeEntity sc1;
-    @ManyToOne @JoinColumn(name="first_course2") RecipeEntity sc2;
-    @ManyToOne @JoinColumn(name="first_course2") RecipeEntity sc3;
-    @ManyToOne @JoinColumn(name="first_course2") RecipeEntity fru;
-    @ManyToOne @JoinColumn(name="first_course2") RecipeEntity des;
+    @ManyToOne @JoinColumn(name="first_course3") RecipeEntity fc3;
+    @ManyToOne @JoinColumn(name="second_course1") RecipeEntity sc1;
+    @ManyToOne @JoinColumn(name="second_course2") RecipeEntity sc2;
+    @ManyToOne @JoinColumn(name="second_course3") RecipeEntity sc3;
+    @ManyToOne @JoinColumn(name="fruit") RecipeEntity fru;
+    @ManyToOne @JoinColumn(name="dessert") RecipeEntity des;
     String notes;
 
     public DailyMenuEntity(){ }
