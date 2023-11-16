@@ -1,14 +1,12 @@
 package it.gammainnovation.ms2database.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity(name="restaurants")
 public class RestaurantEntity {
     /* #################### PROPERTIES #################### */
     @Id private String id;
-    @Column(name="floor_id") private int floor;
+    @ManyToOne @JoinColumn(name = "floor_id") private FloorEntity floor;
     @Column(name="num_seats") int numSeats;
     String name;
 
@@ -24,11 +22,11 @@ public class RestaurantEntity {
         this.id = id;
     }
 
-    public int getFloor() {
+    public FloorEntity getFloor() {
         return floor;
     }
 
-    public void setFloor(int floor) {
+    public void setFloor(FloorEntity floor) {
         this.floor = floor;
     }
 

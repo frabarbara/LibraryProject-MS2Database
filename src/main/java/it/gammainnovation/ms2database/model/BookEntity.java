@@ -2,9 +2,7 @@ package it.gammainnovation.ms2database.model;
 
 import it.gammainnovation.librarymodel.BookStatus;
 import it.gammainnovation.librarymodel.Theme;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity(name="books")
 public class BookEntity {
@@ -13,11 +11,11 @@ public class BookEntity {
     String isbn;
     String title;
     int edition;
-    String authorId;
+    @ManyToOne @JoinColumn(name = "author") AuthorEntity author;
     @Column(name="pub_year") int pubYear;
-    String theme;
+    @ManyToOne @JoinColumn(name = "theme") ThemeEntity theme;
     boolean borrowable;
-    String status;
+    @ManyToOne @JoinColumn(name = "status") BookStatusEntity status;
 
     public BookEntity() {}
 
@@ -27,50 +25,6 @@ public class BookEntity {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public void setEdition(int edition) {
-        this.edition = edition;
-    }
-
-    public String getAuthorId() {
-        return authorId;
-    }
-
-    public void setAuthorId(String authorId) {
-        this.authorId = authorId;
-    }
-
-    public int getPubYear() {
-        return pubYear;
-    }
-
-    public void setPubYear(int pubYear) {
-        this.pubYear = pubYear;
-    }
-
-    public String getTheme() {
-        return theme;
-    }
-
-    public void setTheme(String theme) {
-        this.theme = theme;
-    }
-
-    public boolean isBorrowable() {
-        return borrowable;
-    }
-
-    public void setBorrowable(boolean borrowable) {
-        this.borrowable = borrowable;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
     }
 
     public String getIsbn() {
@@ -93,4 +47,47 @@ public class BookEntity {
         return edition;
     }
 
+    public void setEdition(int edition) {
+        this.edition = edition;
+    }
+
+    public AuthorEntity getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(AuthorEntity author) {
+        this.author = author;
+    }
+
+    public int getPubYear() {
+        return pubYear;
+    }
+
+    public void setPubYear(int pubYear) {
+        this.pubYear = pubYear;
+    }
+
+    public ThemeEntity getTheme() {
+        return theme;
+    }
+
+    public void setTheme(ThemeEntity theme) {
+        this.theme = theme;
+    }
+
+    public boolean isBorrowable() {
+        return borrowable;
+    }
+
+    public void setBorrowable(boolean borrowable) {
+        this.borrowable = borrowable;
+    }
+
+    public BookStatusEntity getStatus() {
+        return status;
+    }
+
+    public void setStatus(BookStatusEntity status) {
+        this.status = status;
+    }
 }

@@ -1,18 +1,15 @@
 package it.gammainnovation.ms2database.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Date;
 
 @Entity(name="booking_restaurant")
 public class RestaurantBookingEntity {
     @Id @GeneratedValue int id;
-    @Column(name="user_id") String userId;
-    @Column(name="restaurant_id") String restaurantId;
-    @Column(name="turn_restaurant_id") String turnId;
+    @ManyToOne @JoinColumn(name = "user_id")UserEntity user;
+    @ManyToOne @JoinColumn(name = "restaurant_id")RestaurantEntity restaurant;
+    @ManyToOne @JoinColumn(name="turn_restaurant_id") RestaurantTurnEntity turn;
     Date day;
 
     public RestaurantBookingEntity(){ };
@@ -24,28 +21,28 @@ public class RestaurantBookingEntity {
         this.id = id;
     }
 
-    public String getUserId() {
-        return userId;
+    public UserEntity getUser() {
+        return user;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setUser(UserEntity user) {
+        this.user = user;
     }
 
-    public String getRestaurantId() {
-        return restaurantId;
+    public RestaurantEntity getRestaurant() {
+        return restaurant;
     }
 
-    public void setRestaurantId(String restaurantId) {
-        this.restaurantId = restaurantId;
+    public void setRestaurant(RestaurantEntity restaurant) {
+        this.restaurant = restaurant;
     }
 
-    public String getTurnId() {
-        return turnId;
+    public RestaurantTurnEntity getTurn() {
+        return turn;
     }
 
-    public void setTurnId(String turnId) {
-        this.turnId = turnId;
+    public void setTurn(RestaurantTurnEntity turn) {
+        this.turn = turn;
     }
 
     public Date getDay() {

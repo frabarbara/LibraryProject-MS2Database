@@ -2,26 +2,23 @@ package it.gammainnovation.ms2database.model;
 
 import java.util.Date;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity(name="maintenance")
 public class MaintenanceEntity {
     @Id @GeneratedValue int id;
-    @Column(name="room_id") String roomId;
+    @ManyToOne @JoinColumn(name="room_id") ReadingRoomEntity room;
     @Column(name="start_maintenance") Date startMaintenance;
     @Column(name="end_maintenance") int duration;
 
     public MaintenanceEntity(){ }
 
-    public String getRoomId() {
-        return roomId;
+    public ReadingRoomEntity getRoom() {
+        return room;
     }
 
-    public void setRoomId(String roomId) {
-        this.roomId = roomId;
+    public void setRoom(ReadingRoomEntity room) {
+        this.room = room;
     }
 
     public Date getStartMaintenance() {
